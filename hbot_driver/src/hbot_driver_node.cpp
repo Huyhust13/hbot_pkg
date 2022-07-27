@@ -46,11 +46,16 @@ HbotDriver::HbotDriver()
 
 }
 
-HbotDriver::~HbotDriver(){};
+HbotDriver::~HbotDriver(){}
 
 void HbotDriver::getParams() {
   this->get_parameter_or<int>("baud_rate", baudrate_, 115200);
   this->get_parameter_or<std::string>("port", port_, "/dev/ttyUSB0");
+}
+
+bool HbotDriver::connectStm32() {
+  serial_ = new serial::Serial(port_, baudrate_, serial::Timeout::simpleTimeout(1000));
+  return serial_->isOpen() ? true : false;
 }
 
 void HbotDriver::readUart() {
@@ -138,9 +143,60 @@ void HbotDriver::readUart() {
   std::cout << "Period: " << (rclcpp::Clock().now().nanoseconds() - begin)/1E6 << "(ms)"<< std::endl;
 }
 
-bool HbotDriver::connectStm32() {
-  serial_ = new serial::Serial(port_, baudrate_, serial::Timeout::simpleTimeout(1000));
-  return serial_->isOpen() ? true : false;
+bool HbotDriver::sendCommand(std::vector<uint8_t> buff, uint8_t size){
+  if(serial_->write(buff) != size) return 0;
+  return 1;
+}
+
+std::pair<std::vector<uint8_t>, uint8_t> HbotDriver::computeCommand(uint8_t cmd_type) {
+  std::pair<std::vector<uint8_t>, uint8_t> cmd;
+  tran_count_++;
+  cmd.first.push_back(KEY_BEGIN_TRAN);
+  cmd.first.push_back(tran_count_ >> 24);
+  cmd.first.push_back(tran_count_ >> 16);
+  cmd.first.push_back(tran_count_ >> 8);
+  cmd.first.push_back(tran_count_);
+  cmd.first.push_back(cmd_type);
+  int k_int;
+  switch (cmd_type)
+  {
+  case CMD_SET_VELOCITY:
+    cmd.second = (uint8_t)12;
+    cmd.first.push_back(cmd.second);
+    cmd.first.push_back(target_rpm_left_ >> 8);
+    cmd.first.push_back(target_rpm_left_);
+    cmd.first.push_back(target_rpm_right_ >> 8);
+    cmd.first.push_back(target_rpm_right_);
+    break;
+  case CMD_SET_KP:
+    cmd.second = (uint8_t)12;
+    cmd.first.push_back(cmd.second);
+    k_int = static_cast<int>(kp_);
+    cmd.first.push_back(k_int >> 24);
+    cmd.first.push_back(k_int >> 16);
+    cmd.first.push_back(k_int >> 8);
+    cmd.first.push_back(k_int);
+  case CMD_SET_KI:
+    cmd.second = (uint8_t)12;
+    cmd.first.push_back(cmd.second);
+    k_int = static_cast<int>(ki_);
+    cmd.first.push_back(k_int >> 24);
+    cmd.first.push_back(k_int >> 16);
+    cmd.first.push_back(k_int >> 8);
+    cmd.first.push_back(k_int);
+  case CMD_SET_KD:
+    cmd.second = (uint8_t)12;
+    cmd.first.push_back(cmd.second);
+    k_int = static_cast<int>(ki_);
+    cmd.first.push_back(k_int >> 24);
+    cmd.first.push_back(k_int >> 16);
+    cmd.first.push_back(k_int >> 8);
+    cmd.first.push_back(k_int);
+  default:
+    break;
+  }
+  cmd.first.push_back(KEY_END_TRAN);
+  return cmd;
 }
 
 void HbotDriver::setRpmCallback(const hbot_msg::msg::Rpm::SharedPtr msg) {
@@ -148,6 +204,8 @@ void HbotDriver::setRpmCallback(const hbot_msg::msg::Rpm::SharedPtr msg) {
   target_rpm_right_ = msg->right;
   RCLCPP_INFO(get_logger(), "Set Rpm: Left: %d - Right: %d", target_rpm_left_, target_rpm_right_);
 }
+
+
 
 int main(int argc, char * argv[])
 {
