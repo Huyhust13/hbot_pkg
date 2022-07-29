@@ -1,0 +1,152 @@
+[0.000000] (-) TimerEvent: {}
+[0.000439] (hbot_driver) JobQueued: {'identifier': 'hbot_driver', 'dependencies': OrderedDict()}
+[0.000616] (hbot_driver) JobStarted: {'identifier': 'hbot_driver'}
+[0.010912] (hbot_driver) JobProgress: {'identifier': 'hbot_driver', 'progress': 'cmake'}
+[0.011383] (hbot_driver) Command: {'cmd': ['/usr/bin/cmake', '/home/huy/hbot_ros2_ws/src/hbot_pkg/hbot_driver', '-DAMENT_CMAKE_SYMLINK_INSTALL=1', '-DCMAKE_INSTALL_PREFIX=/home/huy/hbot_ros2_ws/src/hbot_pkg/hbot_driver/install/hbot_driver'], 'cwd': '/home/huy/hbot_ros2_ws/src/hbot_pkg/hbot_driver/build/hbot_driver', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('BYOBU_LIGHT', '\\#EEEEEE'), ('BYOBU_SED', 'sed'), ('TMUX', '/tmp/tmux-1000/default,13399,1'), ('BYOBU_EDITOR', 'sensible-editor'), ('LC_TIME', 'en_GB.UTF-8'), ('USER', 'huy'), ('SSH_AGENT_PID', '1675'), ('XDG_SESSION_TYPE', 'x11'), ('LD_LIBRARY_PATH', '/home/huy/hbot_ros2_ws/install/serial/lib:/home/huy/hbot_ros2_ws/install/hbot_msg/lib:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib'), ('SHLVL', '2'), ('BYOBU_TIME', '%H:%M:%S'), ('HOME', '/home/huy'), ('LESS', '-R'), ('OLDPWD', '/home/huy/hbot_ros2_ws/src/hbot_pkg'), ('DESKTOP_SESSION', 'ubuntu'), ('LSCOLORS', 'Gxfxcxdxbxegedabagacad'), ('ZSH', '/home/huy/.oh-my-zsh'), ('BYOBU_PREFIX', '/usr'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('PAGER', 'less'), ('ROS_PYTHON_VERSION', '3'), ('LC_MONETARY', 'en_GB.UTF-8'), ('MANAGERPID', '1502'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('BYOBU_WINDOW_NAME', '-'), ('IM_CONFIG_PHASE', '1'), ('ROS_DISTRO', 'foxy'), ('COLCON_PREFIX_PATH', '/home/huy/hbot_ros2_ws/install'), ('BYOBU_TERM', 'screen-256color'), ('BYOBU_ULIMIT', 'ulimit'), ('LOGNAME', 'huy'), ('BYOBU_ACCENT', '\\#75507B'), ('BYOBU_CHARMAP', 'UTF-8'), ('BYOBU_DISTRO', 'Ubuntu'), ('BYOBU_HIGHLIGHT', '\\#DD4814'), ('BYOBU_READLINK', 'readlink'), ('JOURNAL_STREAM', '8:42057'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('TERM', 'screen-256color'), ('USERNAME', 'huy'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/opt/gcc-arm/bin:/opt/gcc-arm/bin:/opt/ros/foxy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('INVOCATION_ID', '00985da4df814f2e8524cce3bfbd3fd6'), ('PAPERSIZE', 'a4'), ('SESSION_MANAGER', 'local/huy-homepc:@/tmp/.ICE-unix/1711,unix/huy-homepc:/tmp/.ICE-unix/1711'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/fcc21a39_0ecb_43af_9f07_cf2b4b3edcbe'), ('LC_ADDRESS', 'en_GB.UTF-8'), ('XDG_MENU_PREFIX', 'gnome-'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':1'), ('LANG', 'en_US.UTF-8'), ('LC_TELEPHONE', 'en_GB.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('GNOME_TERMINAL_SERVICE', ':1.466'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XMODIFIERS', '@im=ibus'), ('AMENT_PREFIX_PATH', '/home/huy/hbot_ros2_ws/install/hbot_driver:/home/huy/hbot_ros2_ws/install/serial:/home/huy/hbot_ros2_ws/install/hbot_msg:/opt/ros/foxy'), ('SSH_AUTH_SOCK', '/home/huy/.byobu/.ssh-agent'), ('LC_NAME', 'en_GB.UTF-8'), ('SHELL', '/usr/bin/zsh'), ('BYOBU_DATE', '%Y-%m-%d'), ('GDMSESSION', 'ubuntu'), ('QT_ACCESSIBILITY', '1'), ('BYOBU_PYTHON', 'python3'), ('BYOBU_CONFIG_DIR', '/home/huy/.byobu'), ('LC_MEASUREMENT', 'en_GB.UTF-8'), ('BYOBU_PAGER', 'sensible-pager'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('LC_IDENTIFICATION', 'en_GB.UTF-8'), ('BYOBU_DARK', '\\#333333'), ('BYOBU_RUN_DIR', '/dev/shm/byobu-huy-pl0f0Y68'), ('QT_IM_MODULE', 'ibus'), ('LC_ALL', 'en_US.UTF-8'), ('PWD', '/home/huy/hbot_ros2_ws/src/hbot_pkg/hbot_driver/build/hbot_driver'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('BYOBU_BACKEND', 'tmux'), ('LC_NUMERIC', 'en_GB.UTF-8'), ('PYTHONPATH', '/home/huy/hbot_ros2_ws/install/hbot_msg/lib/python3.8/site-packages:/opt/ros/foxy/lib/python3.8/site-packages'), ('LC_PAPER', 'en_GB.UTF-8'), ('COLCON', '1'), ('TMUX_PANE', '%1'), ('VTE_VERSION', '6003'), ('BYOBU_TTY', '/dev/pts/0'), ('CMAKE_PREFIX_PATH', '/home/huy/hbot_ros2_ws/install/hbot_driver:/opt/ros/foxy:/home/huy/hbot_ros2_ws/install/serial:/home/huy/hbot_ros2_ws/install/hbot_msg')]), 'shell': False}
+[0.100107] (-) TimerEvent: {}
+[0.166982] (hbot_driver) StdoutLine: {'line': b'-- The C compiler identification is GNU 9.4.0\n'}
+[0.200145] (-) TimerEvent: {}
+[0.213918] (hbot_driver) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 9.4.0\n'}
+[0.218187] (hbot_driver) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc\n'}
+[0.275056] (hbot_driver) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc -- works\n'}
+[0.276572] (hbot_driver) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[0.300255] (-) TimerEvent: {}
+[0.337279] (hbot_driver) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[0.348159] (hbot_driver) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[0.348816] (hbot_driver) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[0.351126] (hbot_driver) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++\n'}
+[0.400381] (-) TimerEvent: {}
+[0.417540] (hbot_driver) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ -- works\n'}
+[0.418416] (hbot_driver) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[0.494670] (hbot_driver) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[0.500466] (-) TimerEvent: {}
+[0.505371] (hbot_driver) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[0.505806] (hbot_driver) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[0.507993] (hbot_driver) StdoutLine: {'line': b'-- Found ament_cmake: 0.9.9 (/opt/ros/foxy/share/ament_cmake/cmake)\n'}
+[0.527863] (hbot_driver) StdoutLine: {'line': b'-- Found PythonInterp: /usr/bin/python3 (found suitable version "3.8.10", minimum required is "3") \n'}
+[0.528044] (hbot_driver) StdoutLine: {'line': b'-- Using PYTHON_EXECUTABLE: /usr/bin/python3\n'}
+[0.600580] (-) TimerEvent: {}
+[0.677048] (hbot_driver) StdoutLine: {'line': b'-- Override CMake install command with custom implementation using symlinks instead of copying resources\n'}
+[0.694097] (hbot_driver) StdoutLine: {'line': b'-- Found serial: 1.2.1 (/home/huy/hbot_ros2_ws/install/serial/share/serial/cmake)\n'}
+[0.697200] (hbot_driver) StdoutLine: {'line': b'-- Found rclcpp: 2.4.1 (/opt/ros/foxy/share/rclcpp/cmake)\n'}
+[0.700662] (-) TimerEvent: {}
+[0.734524] (hbot_driver) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[0.740195] (hbot_driver) StdoutLine: {'line': b'-- Found rosidl_adapter: 1.2.1 (/opt/ros/foxy/share/rosidl_adapter/cmake)\n'}
+[0.801250] (-) TimerEvent: {}
+[0.811955] (hbot_driver) StdoutLine: {'line': b'-- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "1.1.1f")  \n'}
+[0.835778] (hbot_driver) StdoutLine: {'line': b'-- Found FastRTPS: /opt/ros/foxy/include  \n'}
+[0.897872] (hbot_driver) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[0.901319] (-) TimerEvent: {}
+[0.945146] (hbot_driver) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 1.0.3 (/opt/ros/foxy/share/rmw_implementation_cmake/cmake)\n'}
+[0.946373] (hbot_driver) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_fastrtps_cpp' as default\n"}
+[0.947429] (hbot_driver) StdoutLine: {'line': b'-- Looking for pthread.h\n'}
+[1.001494] (-) TimerEvent: {}
+[1.009934] (hbot_driver) StdoutLine: {'line': b'-- Looking for pthread.h - found\n'}
+[1.010155] (hbot_driver) StdoutLine: {'line': b'-- Performing Test CMAKE_HAVE_LIBC_PTHREAD\n'}
+[1.075161] (hbot_driver) StdoutLine: {'line': b'-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Failed\n'}
+[1.075356] (hbot_driver) StdoutLine: {'line': b'-- Looking for pthread_create in pthreads\n'}
+[1.101616] (-) TimerEvent: {}
+[1.131549] (hbot_driver) StdoutLine: {'line': b'-- Looking for pthread_create in pthreads - not found\n'}
+[1.131709] (hbot_driver) StdoutLine: {'line': b'-- Looking for pthread_create in pthread\n'}
+[1.189811] (hbot_driver) StdoutLine: {'line': b'-- Looking for pthread_create in pthread - found\n'}
+[1.190712] (hbot_driver) StdoutLine: {'line': b'-- Found Threads: TRUE  \n'}
+[1.201716] (-) TimerEvent: {}
+[1.301979] (-) TimerEvent: {}
+[1.323830] (hbot_driver) StdoutLine: {'line': b'-- Found hbot_msg: 0.0.0 (/home/huy/hbot_ros2_ws/install/hbot_msg/share/hbot_msg/cmake)\n'}
+[1.385708] (hbot_driver) StdoutLine: {'line': b'-- Configuring done\n'}
+[1.391667] (hbot_driver) StdoutLine: {'line': b'-- Generating done\n'}
+[1.392973] (hbot_driver) StdoutLine: {'line': b'-- Build files have been written to: /home/huy/hbot_ros2_ws/src/hbot_pkg/hbot_driver/build/hbot_driver\n'}
+[1.398041] (hbot_driver) CommandEnded: {'returncode': 0}
+[1.400789] (hbot_driver) JobProgress: {'identifier': 'hbot_driver', 'progress': 'build'}
+[1.401112] (hbot_driver) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/huy/hbot_ros2_ws/src/hbot_pkg/hbot_driver/build/hbot_driver', '--', '-j4', '-l4'], 'cwd': '/home/huy/hbot_ros2_ws/src/hbot_pkg/hbot_driver/build/hbot_driver', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('BYOBU_LIGHT', '\\#EEEEEE'), ('BYOBU_SED', 'sed'), ('TMUX', '/tmp/tmux-1000/default,13399,1'), ('BYOBU_EDITOR', 'sensible-editor'), ('LC_TIME', 'en_GB.UTF-8'), ('USER', 'huy'), ('SSH_AGENT_PID', '1675'), ('XDG_SESSION_TYPE', 'x11'), ('LD_LIBRARY_PATH', '/home/huy/hbot_ros2_ws/install/serial/lib:/home/huy/hbot_ros2_ws/install/hbot_msg/lib:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib'), ('SHLVL', '2'), ('BYOBU_TIME', '%H:%M:%S'), ('HOME', '/home/huy'), ('LESS', '-R'), ('OLDPWD', '/home/huy/hbot_ros2_ws/src/hbot_pkg'), ('DESKTOP_SESSION', 'ubuntu'), ('LSCOLORS', 'Gxfxcxdxbxegedabagacad'), ('ZSH', '/home/huy/.oh-my-zsh'), ('BYOBU_PREFIX', '/usr'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('PAGER', 'less'), ('ROS_PYTHON_VERSION', '3'), ('LC_MONETARY', 'en_GB.UTF-8'), ('MANAGERPID', '1502'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('BYOBU_WINDOW_NAME', '-'), ('IM_CONFIG_PHASE', '1'), ('ROS_DISTRO', 'foxy'), ('COLCON_PREFIX_PATH', '/home/huy/hbot_ros2_ws/install'), ('BYOBU_TERM', 'screen-256color'), ('BYOBU_ULIMIT', 'ulimit'), ('LOGNAME', 'huy'), ('BYOBU_ACCENT', '\\#75507B'), ('BYOBU_CHARMAP', 'UTF-8'), ('BYOBU_DISTRO', 'Ubuntu'), ('BYOBU_HIGHLIGHT', '\\#DD4814'), ('BYOBU_READLINK', 'readlink'), ('JOURNAL_STREAM', '8:42057'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('TERM', 'screen-256color'), ('USERNAME', 'huy'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/opt/gcc-arm/bin:/opt/gcc-arm/bin:/opt/ros/foxy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('INVOCATION_ID', '00985da4df814f2e8524cce3bfbd3fd6'), ('PAPERSIZE', 'a4'), ('SESSION_MANAGER', 'local/huy-homepc:@/tmp/.ICE-unix/1711,unix/huy-homepc:/tmp/.ICE-unix/1711'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/fcc21a39_0ecb_43af_9f07_cf2b4b3edcbe'), ('LC_ADDRESS', 'en_GB.UTF-8'), ('XDG_MENU_PREFIX', 'gnome-'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':1'), ('LANG', 'en_US.UTF-8'), ('LC_TELEPHONE', 'en_GB.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('GNOME_TERMINAL_SERVICE', ':1.466'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XMODIFIERS', '@im=ibus'), ('AMENT_PREFIX_PATH', '/home/huy/hbot_ros2_ws/install/hbot_driver:/home/huy/hbot_ros2_ws/install/serial:/home/huy/hbot_ros2_ws/install/hbot_msg:/opt/ros/foxy'), ('SSH_AUTH_SOCK', '/home/huy/.byobu/.ssh-agent'), ('LC_NAME', 'en_GB.UTF-8'), ('SHELL', '/usr/bin/zsh'), ('BYOBU_DATE', '%Y-%m-%d'), ('GDMSESSION', 'ubuntu'), ('QT_ACCESSIBILITY', '1'), ('BYOBU_PYTHON', 'python3'), ('BYOBU_CONFIG_DIR', '/home/huy/.byobu'), ('LC_MEASUREMENT', 'en_GB.UTF-8'), ('BYOBU_PAGER', 'sensible-pager'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('LC_IDENTIFICATION', 'en_GB.UTF-8'), ('BYOBU_DARK', '\\#333333'), ('BYOBU_RUN_DIR', '/dev/shm/byobu-huy-pl0f0Y68'), ('QT_IM_MODULE', 'ibus'), ('LC_ALL', 'en_US.UTF-8'), ('PWD', '/home/huy/hbot_ros2_ws/src/hbot_pkg/hbot_driver/build/hbot_driver'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('BYOBU_BACKEND', 'tmux'), ('LC_NUMERIC', 'en_GB.UTF-8'), ('PYTHONPATH', '/home/huy/hbot_ros2_ws/install/hbot_msg/lib/python3.8/site-packages:/opt/ros/foxy/lib/python3.8/site-packages'), ('LC_PAPER', 'en_GB.UTF-8'), ('COLCON', '1'), ('TMUX_PANE', '%1'), ('VTE_VERSION', '6003'), ('BYOBU_TTY', '/dev/pts/0'), ('CMAKE_PREFIX_PATH', '/home/huy/hbot_ros2_ws/install/hbot_driver:/opt/ros/foxy:/home/huy/hbot_ros2_ws/install/serial:/home/huy/hbot_ros2_ws/install/hbot_msg')]), 'shell': False}
+[1.402001] (-) TimerEvent: {}
+[1.434272] (hbot_driver) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target hbot_driver\x1b[0m\n'}
+[1.466215] (hbot_driver) StdoutLine: {'line': b'[ 50%] \x1b[32mBuilding CXX object CMakeFiles/hbot_driver.dir/src/hbot_driver_node.cpp.o\x1b[0m\n'}
+[1.502191] (-) TimerEvent: {}
+[1.603360] (-) TimerEvent: {}
+[1.703691] (-) TimerEvent: {}
+[1.804015] (-) TimerEvent: {}
+[1.904274] (-) TimerEvent: {}
+[2.004569] (-) TimerEvent: {}
+[2.104824] (-) TimerEvent: {}
+[2.205090] (-) TimerEvent: {}
+[2.305351] (-) TimerEvent: {}
+[2.405612] (-) TimerEvent: {}
+[2.505871] (-) TimerEvent: {}
+[2.606126] (-) TimerEvent: {}
+[2.706386] (-) TimerEvent: {}
+[2.806697] (-) TimerEvent: {}
+[2.906954] (-) TimerEvent: {}
+[3.007224] (-) TimerEvent: {}
+[3.107494] (-) TimerEvent: {}
+[3.207755] (-) TimerEvent: {}
+[3.308026] (-) TimerEvent: {}
+[3.408304] (-) TimerEvent: {}
+[3.508571] (-) TimerEvent: {}
+[3.608837] (-) TimerEvent: {}
+[3.709142] (-) TimerEvent: {}
+[3.717695] (hbot_driver) StderrLine: {'line': b'\x1b[01m\x1b[K/home/huy/hbot_ros2_ws/src/hbot_pkg/hbot_driver/src/hbot_driver_node.cpp:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kstd::pair<std::vector<unsigned char, std::allocator<unsigned char> >, unsigned char> HbotDriver::computeCommand(uint8_t)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[3.717920] (hbot_driver) StderrLine: {'line': b'\x1b[01m\x1b[K/home/huy/hbot_ros2_ws/src/hbot_pkg/hbot_driver/src/hbot_driver_node.cpp:194:24:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kthis statement may fall through [\x1b[01;35m\x1b[K-Wimplicit-fallthrough=\x1b[m\x1b[K]\n'}
+[3.717999] (hbot_driver) StderrLine: {'line': b'  194 |     \x1b[01;35m\x1b[Kcmd.first.push_back(k_int)\x1b[m\x1b[K;\n'}
+[3.718064] (hbot_driver) StderrLine: {'line': b'      |     \x1b[01;35m\x1b[K~~~~~~~~~~~~~~~~~~~^~~~~~~\x1b[m\x1b[K\n'}
+[3.718113] (hbot_driver) StderrLine: {'line': b'\x1b[01m\x1b[K/home/huy/hbot_ros2_ws/src/hbot_pkg/hbot_driver/src/hbot_driver_node.cpp:195:3:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Khere\n'}
+[3.718162] (hbot_driver) StderrLine: {'line': b'  195 |   \x1b[01;36m\x1b[Kcase\x1b[m\x1b[K CMD_SET_KI:\n'}
+[3.718237] (hbot_driver) StderrLine: {'line': b'      |   \x1b[01;36m\x1b[K^~~~\x1b[m\x1b[K\n'}
+[3.718284] (hbot_driver) StderrLine: {'line': b'\x1b[01m\x1b[K/home/huy/hbot_ros2_ws/src/hbot_pkg/hbot_driver/src/hbot_driver_node.cpp:202:24:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kthis statement may fall through [\x1b[01;35m\x1b[K-Wimplicit-fallthrough=\x1b[m\x1b[K]\n'}
+[3.718334] (hbot_driver) StderrLine: {'line': b'  202 |     \x1b[01;35m\x1b[Kcmd.first.push_back(k_int)\x1b[m\x1b[K;\n'}
+[3.718381] (hbot_driver) StderrLine: {'line': b'      |     \x1b[01;35m\x1b[K~~~~~~~~~~~~~~~~~~~^~~~~~~\x1b[m\x1b[K\n'}
+[3.718445] (hbot_driver) StderrLine: {'line': b'\x1b[01m\x1b[K/home/huy/hbot_ros2_ws/src/hbot_pkg/hbot_driver/src/hbot_driver_node.cpp:203:3:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Khere\n'}
+[3.718495] (hbot_driver) StderrLine: {'line': b'  203 |   \x1b[01;36m\x1b[Kcase\x1b[m\x1b[K CMD_SET_KD:\n'}
+[3.718544] (hbot_driver) StderrLine: {'line': b'      |   \x1b[01;36m\x1b[K^~~~\x1b[m\x1b[K\n'}
+[3.809255] (-) TimerEvent: {}
+[3.909521] (-) TimerEvent: {}
+[4.009775] (-) TimerEvent: {}
+[4.110024] (-) TimerEvent: {}
+[4.210274] (-) TimerEvent: {}
+[4.310526] (-) TimerEvent: {}
+[4.410776] (-) TimerEvent: {}
+[4.511025] (-) TimerEvent: {}
+[4.611277] (-) TimerEvent: {}
+[4.711571] (-) TimerEvent: {}
+[4.811929] (-) TimerEvent: {}
+[4.912215] (-) TimerEvent: {}
+[5.012542] (-) TimerEvent: {}
+[5.112818] (-) TimerEvent: {}
+[5.213095] (-) TimerEvent: {}
+[5.313377] (-) TimerEvent: {}
+[5.413664] (-) TimerEvent: {}
+[5.514156] (-) TimerEvent: {}
+[5.614476] (-) TimerEvent: {}
+[5.629496] (hbot_driver) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking CXX executable hbot_driver\x1b[0m\n'}
+[5.714604] (-) TimerEvent: {}
+[5.814995] (-) TimerEvent: {}
+[5.901989] (hbot_driver) StdoutLine: {'line': b'[100%] Built target hbot_driver\n'}
+[5.911743] (hbot_driver) CommandEnded: {'returncode': 0}
+[5.915136] (-) TimerEvent: {}
+[5.933008] (hbot_driver) JobProgress: {'identifier': 'hbot_driver', 'progress': 'install'}
+[5.942816] (hbot_driver) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/huy/hbot_ros2_ws/src/hbot_pkg/hbot_driver/build/hbot_driver'], 'cwd': '/home/huy/hbot_ros2_ws/src/hbot_pkg/hbot_driver/build/hbot_driver', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('BYOBU_LIGHT', '\\#EEEEEE'), ('BYOBU_SED', 'sed'), ('TMUX', '/tmp/tmux-1000/default,13399,1'), ('BYOBU_EDITOR', 'sensible-editor'), ('LC_TIME', 'en_GB.UTF-8'), ('USER', 'huy'), ('SSH_AGENT_PID', '1675'), ('XDG_SESSION_TYPE', 'x11'), ('LD_LIBRARY_PATH', '/home/huy/hbot_ros2_ws/install/serial/lib:/home/huy/hbot_ros2_ws/install/hbot_msg/lib:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib'), ('SHLVL', '2'), ('BYOBU_TIME', '%H:%M:%S'), ('HOME', '/home/huy'), ('LESS', '-R'), ('OLDPWD', '/home/huy/hbot_ros2_ws/src/hbot_pkg'), ('DESKTOP_SESSION', 'ubuntu'), ('LSCOLORS', 'Gxfxcxdxbxegedabagacad'), ('ZSH', '/home/huy/.oh-my-zsh'), ('BYOBU_PREFIX', '/usr'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('PAGER', 'less'), ('ROS_PYTHON_VERSION', '3'), ('LC_MONETARY', 'en_GB.UTF-8'), ('MANAGERPID', '1502'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('BYOBU_WINDOW_NAME', '-'), ('IM_CONFIG_PHASE', '1'), ('ROS_DISTRO', 'foxy'), ('COLCON_PREFIX_PATH', '/home/huy/hbot_ros2_ws/install'), ('BYOBU_TERM', 'screen-256color'), ('BYOBU_ULIMIT', 'ulimit'), ('LOGNAME', 'huy'), ('BYOBU_ACCENT', '\\#75507B'), ('BYOBU_CHARMAP', 'UTF-8'), ('BYOBU_DISTRO', 'Ubuntu'), ('BYOBU_HIGHLIGHT', '\\#DD4814'), ('BYOBU_READLINK', 'readlink'), ('JOURNAL_STREAM', '8:42057'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('TERM', 'screen-256color'), ('USERNAME', 'huy'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/opt/gcc-arm/bin:/opt/gcc-arm/bin:/opt/ros/foxy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('INVOCATION_ID', '00985da4df814f2e8524cce3bfbd3fd6'), ('PAPERSIZE', 'a4'), ('SESSION_MANAGER', 'local/huy-homepc:@/tmp/.ICE-unix/1711,unix/huy-homepc:/tmp/.ICE-unix/1711'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/fcc21a39_0ecb_43af_9f07_cf2b4b3edcbe'), ('LC_ADDRESS', 'en_GB.UTF-8'), ('XDG_MENU_PREFIX', 'gnome-'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':1'), ('LANG', 'en_US.UTF-8'), ('LC_TELEPHONE', 'en_GB.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('GNOME_TERMINAL_SERVICE', ':1.466'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XMODIFIERS', '@im=ibus'), ('AMENT_PREFIX_PATH', '/home/huy/hbot_ros2_ws/install/hbot_driver:/home/huy/hbot_ros2_ws/install/serial:/home/huy/hbot_ros2_ws/install/hbot_msg:/opt/ros/foxy'), ('SSH_AUTH_SOCK', '/home/huy/.byobu/.ssh-agent'), ('LC_NAME', 'en_GB.UTF-8'), ('SHELL', '/usr/bin/zsh'), ('BYOBU_DATE', '%Y-%m-%d'), ('GDMSESSION', 'ubuntu'), ('QT_ACCESSIBILITY', '1'), ('BYOBU_PYTHON', 'python3'), ('BYOBU_CONFIG_DIR', '/home/huy/.byobu'), ('LC_MEASUREMENT', 'en_GB.UTF-8'), ('BYOBU_PAGER', 'sensible-pager'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('LC_IDENTIFICATION', 'en_GB.UTF-8'), ('BYOBU_DARK', '\\#333333'), ('BYOBU_RUN_DIR', '/dev/shm/byobu-huy-pl0f0Y68'), ('QT_IM_MODULE', 'ibus'), ('LC_ALL', 'en_US.UTF-8'), ('PWD', '/home/huy/hbot_ros2_ws/src/hbot_pkg/hbot_driver/build/hbot_driver'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('BYOBU_BACKEND', 'tmux'), ('LC_NUMERIC', 'en_GB.UTF-8'), ('PYTHONPATH', '/home/huy/hbot_ros2_ws/install/hbot_msg/lib/python3.8/site-packages:/opt/ros/foxy/lib/python3.8/site-packages'), ('LC_PAPER', 'en_GB.UTF-8'), ('COLCON', '1'), ('TMUX_PANE', '%1'), ('VTE_VERSION', '6003'), ('BYOBU_TTY', '/dev/pts/0'), ('CMAKE_PREFIX_PATH', '/home/huy/hbot_ros2_ws/install/hbot_driver:/opt/ros/foxy:/home/huy/hbot_ros2_ws/install/serial:/home/huy/hbot_ros2_ws/install/hbot_msg')]), 'shell': False}
+[5.952968] (hbot_driver) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[5.953396] (hbot_driver) StdoutLine: {'line': b'-- Execute custom install script\n'}
+[5.953936] (hbot_driver) StdoutLine: {'line': b'-- Symlinking: /home/huy/hbot_ros2_ws/src/hbot_pkg/hbot_driver/install/hbot_driver/lib/hbot_driver/hbot_driver\n'}
+[5.962629] (hbot_driver) StdoutLine: {'line': b'-- Symlinking: /home/huy/hbot_ros2_ws/src/hbot_pkg/hbot_driver/install/hbot_driver/share/hbot_driver/launch/hbot_driver.launch.py\n'}
+[5.971126] (hbot_driver) StdoutLine: {'line': b'-- Symlinking: /home/huy/hbot_ros2_ws/src/hbot_pkg/hbot_driver/install/hbot_driver/share/hbot_driver/config/params.yaml\n'}
+[5.979436] (hbot_driver) StdoutLine: {'line': b'-- Symlinking: /home/huy/hbot_ros2_ws/src/hbot_pkg/hbot_driver/install/hbot_driver/share/ament_index/resource_index/package_run_dependencies/hbot_driver\n'}
+[5.987593] (hbot_driver) StdoutLine: {'line': b'-- Symlinking: /home/huy/hbot_ros2_ws/src/hbot_pkg/hbot_driver/install/hbot_driver/share/ament_index/resource_index/parent_prefix_path/hbot_driver\n'}
+[5.995713] (hbot_driver) StdoutLine: {'line': b'-- Symlinking: /home/huy/hbot_ros2_ws/src/hbot_pkg/hbot_driver/install/hbot_driver/share/hbot_driver/environment/ament_prefix_path.sh\n'}
+[6.003750] (hbot_driver) StdoutLine: {'line': b'-- Symlinking: /home/huy/hbot_ros2_ws/src/hbot_pkg/hbot_driver/install/hbot_driver/share/hbot_driver/environment/ament_prefix_path.dsv\n'}
+[6.011933] (hbot_driver) StdoutLine: {'line': b'-- Symlinking: /home/huy/hbot_ros2_ws/src/hbot_pkg/hbot_driver/install/hbot_driver/share/hbot_driver/environment/path.sh\n'}
+[6.015229] (-) TimerEvent: {}
+[6.020743] (hbot_driver) StdoutLine: {'line': b'-- Symlinking: /home/huy/hbot_ros2_ws/src/hbot_pkg/hbot_driver/install/hbot_driver/share/hbot_driver/environment/path.dsv\n'}
+[6.028915] (hbot_driver) StdoutLine: {'line': b'-- Symlinking: /home/huy/hbot_ros2_ws/src/hbot_pkg/hbot_driver/install/hbot_driver/share/hbot_driver/local_setup.bash\n'}
+[6.037010] (hbot_driver) StdoutLine: {'line': b'-- Symlinking: /home/huy/hbot_ros2_ws/src/hbot_pkg/hbot_driver/install/hbot_driver/share/hbot_driver/local_setup.sh\n'}
+[6.045231] (hbot_driver) StdoutLine: {'line': b'-- Symlinking: /home/huy/hbot_ros2_ws/src/hbot_pkg/hbot_driver/install/hbot_driver/share/hbot_driver/local_setup.zsh\n'}
+[6.053867] (hbot_driver) StdoutLine: {'line': b'-- Symlinking: /home/huy/hbot_ros2_ws/src/hbot_pkg/hbot_driver/install/hbot_driver/share/hbot_driver/local_setup.dsv\n'}
+[6.062502] (hbot_driver) StdoutLine: {'line': b'-- Symlinking: /home/huy/hbot_ros2_ws/src/hbot_pkg/hbot_driver/install/hbot_driver/share/hbot_driver/package.dsv\n'}
+[6.070503] (hbot_driver) StdoutLine: {'line': b'-- Symlinking: /home/huy/hbot_ros2_ws/src/hbot_pkg/hbot_driver/install/hbot_driver/share/ament_index/resource_index/packages/hbot_driver\n'}
+[6.078678] (hbot_driver) StdoutLine: {'line': b'-- Symlinking: /home/huy/hbot_ros2_ws/src/hbot_pkg/hbot_driver/install/hbot_driver/share/hbot_driver/cmake/hbot_driverConfig.cmake\n'}
+[6.086738] (hbot_driver) StdoutLine: {'line': b'-- Symlinking: /home/huy/hbot_ros2_ws/src/hbot_pkg/hbot_driver/install/hbot_driver/share/hbot_driver/cmake/hbot_driverConfig-version.cmake\n'}
+[6.095048] (hbot_driver) StdoutLine: {'line': b'-- Symlinking: /home/huy/hbot_ros2_ws/src/hbot_pkg/hbot_driver/install/hbot_driver/share/hbot_driver/package.xml\n'}
+[6.105149] (hbot_driver) CommandEnded: {'returncode': 0}
+[6.115727] (-) TimerEvent: {}
+[6.150228] (hbot_driver) JobEnded: {'identifier': 'hbot_driver', 'rc': 0}
+[6.151179] (-) EventReactorShutdown: {}

@@ -1,0 +1,13 @@
+[01m[K/home/huy/hbot_ros2_ws/src/hbot_pkg/hbot_driver/src/hbot_driver_node.cpp:[m[K In member function ‘[01m[Kstd::pair<std::vector<unsigned char, std::allocator<unsigned char> >, unsigned char> HbotDriver::computeCommand(uint8_t)[m[K’:
+[01m[K/home/huy/hbot_ros2_ws/src/hbot_pkg/hbot_driver/src/hbot_driver_node.cpp:194:24:[m[K [01;35m[Kwarning: [m[Kthis statement may fall through [[01;35m[K-Wimplicit-fallthrough=[m[K]
+  194 |     [01;35m[Kcmd.first.push_back(k_int)[m[K;
+      |     [01;35m[K~~~~~~~~~~~~~~~~~~~^~~~~~~[m[K
+[01m[K/home/huy/hbot_ros2_ws/src/hbot_pkg/hbot_driver/src/hbot_driver_node.cpp:195:3:[m[K [01;36m[Knote: [m[Khere
+  195 |   [01;36m[Kcase[m[K CMD_SET_KI:
+      |   [01;36m[K^~~~[m[K
+[01m[K/home/huy/hbot_ros2_ws/src/hbot_pkg/hbot_driver/src/hbot_driver_node.cpp:202:24:[m[K [01;35m[Kwarning: [m[Kthis statement may fall through [[01;35m[K-Wimplicit-fallthrough=[m[K]
+  202 |     [01;35m[Kcmd.first.push_back(k_int)[m[K;
+      |     [01;35m[K~~~~~~~~~~~~~~~~~~~^~~~~~~[m[K
+[01m[K/home/huy/hbot_ros2_ws/src/hbot_pkg/hbot_driver/src/hbot_driver_node.cpp:203:3:[m[K [01;36m[Knote: [m[Khere
+  203 |   [01;36m[Kcase[m[K CMD_SET_KD:
+      |   [01;36m[K^~~~[m[K

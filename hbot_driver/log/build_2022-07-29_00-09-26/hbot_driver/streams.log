@@ -1,0 +1,25 @@
+[0.016s] Invoking command in '/home/huy/hbot_ros2_ws/src/hbot_pkg/hbot_driver/build/hbot_driver': BYOBU_DATE=%Y-%m-%d CMAKE_PREFIX_PATH=/home/huy/hbot_ros2_ws/install/hbot_driver:/opt/ros/foxy:/home/huy/hbot_ros2_ws/install/serial:/home/huy/hbot_ros2_ws/install/hbot_msg /usr/bin/cmake --build /home/huy/hbot_ros2_ws/src/hbot_pkg/hbot_driver/build/hbot_driver -- -j4 -l4
+[0.066s] [100%] Built target hbot_driver
+[0.075s] Invoked command in '/home/huy/hbot_ros2_ws/src/hbot_pkg/hbot_driver/build/hbot_driver' returned '0': BYOBU_DATE=%Y-%m-%d CMAKE_PREFIX_PATH=/home/huy/hbot_ros2_ws/install/hbot_driver:/opt/ros/foxy:/home/huy/hbot_ros2_ws/install/serial:/home/huy/hbot_ros2_ws/install/hbot_msg /usr/bin/cmake --build /home/huy/hbot_ros2_ws/src/hbot_pkg/hbot_driver/build/hbot_driver -- -j4 -l4
+[0.104s] Invoking command in '/home/huy/hbot_ros2_ws/src/hbot_pkg/hbot_driver/build/hbot_driver': BYOBU_DATE=%Y-%m-%d CMAKE_PREFIX_PATH=/home/huy/hbot_ros2_ws/install/hbot_driver:/opt/ros/foxy:/home/huy/hbot_ros2_ws/install/serial:/home/huy/hbot_ros2_ws/install/hbot_msg /usr/bin/cmake --install /home/huy/hbot_ros2_ws/src/hbot_pkg/hbot_driver/build/hbot_driver
+[0.111s] -- Install configuration: ""
+[0.111s] -- Execute custom install script
+[0.112s] -- Up-to-date symlink: /home/huy/hbot_ros2_ws/src/hbot_pkg/hbot_driver/install/hbot_driver/lib/hbot_driver/hbot_driver
+[0.112s] -- Up-to-date symlink: /home/huy/hbot_ros2_ws/src/hbot_pkg/hbot_driver/install/hbot_driver/share/hbot_driver/launch/hbot_driver.launch.py
+[0.113s] -- Up-to-date symlink: /home/huy/hbot_ros2_ws/src/hbot_pkg/hbot_driver/install/hbot_driver/share/hbot_driver/config/params.yaml
+[0.113s] -- Up-to-date symlink: /home/huy/hbot_ros2_ws/src/hbot_pkg/hbot_driver/install/hbot_driver/share/ament_index/resource_index/package_run_dependencies/hbot_driver
+[0.113s] -- Up-to-date symlink: /home/huy/hbot_ros2_ws/src/hbot_pkg/hbot_driver/install/hbot_driver/share/ament_index/resource_index/parent_prefix_path/hbot_driver
+[0.113s] -- Up-to-date symlink: /home/huy/hbot_ros2_ws/src/hbot_pkg/hbot_driver/install/hbot_driver/share/hbot_driver/environment/ament_prefix_path.sh
+[0.113s] -- Up-to-date symlink: /home/huy/hbot_ros2_ws/src/hbot_pkg/hbot_driver/install/hbot_driver/share/hbot_driver/environment/ament_prefix_path.dsv
+[0.114s] -- Up-to-date symlink: /home/huy/hbot_ros2_ws/src/hbot_pkg/hbot_driver/install/hbot_driver/share/hbot_driver/environment/path.sh
+[0.114s] -- Up-to-date symlink: /home/huy/hbot_ros2_ws/src/hbot_pkg/hbot_driver/install/hbot_driver/share/hbot_driver/environment/path.dsv
+[0.114s] -- Up-to-date symlink: /home/huy/hbot_ros2_ws/src/hbot_pkg/hbot_driver/install/hbot_driver/share/hbot_driver/local_setup.bash
+[0.114s] -- Up-to-date symlink: /home/huy/hbot_ros2_ws/src/hbot_pkg/hbot_driver/install/hbot_driver/share/hbot_driver/local_setup.sh
+[0.115s] -- Up-to-date symlink: /home/huy/hbot_ros2_ws/src/hbot_pkg/hbot_driver/install/hbot_driver/share/hbot_driver/local_setup.zsh
+[0.115s] -- Up-to-date symlink: /home/huy/hbot_ros2_ws/src/hbot_pkg/hbot_driver/install/hbot_driver/share/hbot_driver/local_setup.dsv
+[0.115s] -- Symlinking: /home/huy/hbot_ros2_ws/src/hbot_pkg/hbot_driver/install/hbot_driver/share/hbot_driver/package.dsv
+[0.123s] -- Up-to-date symlink: /home/huy/hbot_ros2_ws/src/hbot_pkg/hbot_driver/install/hbot_driver/share/ament_index/resource_index/packages/hbot_driver
+[0.123s] -- Up-to-date symlink: /home/huy/hbot_ros2_ws/src/hbot_pkg/hbot_driver/install/hbot_driver/share/hbot_driver/cmake/hbot_driverConfig.cmake
+[0.123s] -- Up-to-date symlink: /home/huy/hbot_ros2_ws/src/hbot_pkg/hbot_driver/install/hbot_driver/share/hbot_driver/cmake/hbot_driverConfig-version.cmake
+[0.123s] -- Up-to-date symlink: /home/huy/hbot_ros2_ws/src/hbot_pkg/hbot_driver/install/hbot_driver/share/hbot_driver/package.xml
+[0.125s] Invoked command in '/home/huy/hbot_ros2_ws/src/hbot_pkg/hbot_driver/build/hbot_driver' returned '0': BYOBU_DATE=%Y-%m-%d CMAKE_PREFIX_PATH=/home/huy/hbot_ros2_ws/install/hbot_driver:/opt/ros/foxy:/home/huy/hbot_ros2_ws/install/serial:/home/huy/hbot_ros2_ws/install/hbot_msg /usr/bin/cmake --install /home/huy/hbot_ros2_ws/src/hbot_pkg/hbot_driver/build/hbot_driver

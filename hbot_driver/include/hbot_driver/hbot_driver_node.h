@@ -1,4 +1,5 @@
 #include "rclcpp/rclcpp.hpp"
+#include "rcl_interfaces/msg/set_parameters_result.hpp" // for parameters changed callback
 #include "std_msgs/msg/string.hpp"
 
 #include "serial/serial.h"
@@ -25,11 +26,12 @@ class HbotDriver : public rclcpp::Node
 {
 private:
   void getParams();
+  rcl_interfaces::msg::SetParametersResult parametersCallback(
+    const std::vector<rclcpp::Parameter> &parameters);
   bool connectStm32();
   void readUart();
-  bool sendCommand(std::vector<uint8_t> buff, uint8_t size);
+  bool sendCommand(uint8_t cmd_type);
 
-  std::pair<std::vector<uint8_t>, uint8_t> computeCommand(uint8_t cmd_type);
   void setRpmCallback(const hbot_msg::msg::Rpm::SharedPtr msg);
 
   rclcpp::Publisher<hbot_msg::msg::Rpm>::SharedPtr fb_rpm_pub_;
@@ -39,6 +41,7 @@ private:
   std::string port_;
   serial::Serial* serial_;
   rclcpp::TimerBase::SharedPtr timer_receive_uart_;
+  OnSetParametersCallbackHandle::SharedPtr on_parameter_changed_;
   uint32_t rec_count_ = 0;
   uint32_t tran_count_ = 0;
 

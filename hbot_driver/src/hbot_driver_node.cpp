@@ -22,19 +22,18 @@ using std::placeholders::_1;
 HbotDriver::HbotDriver()
 : Node("hbot_driver")
 {
-  RCLCPP_INFO(this->get_logger(), "Get parameters");
+  // RCLCPP_INFO(this->get_logger(), "Get parameters");
+
   getParams();
 
-  if (!connectStm32()) {
-    RCLCPP_ERROR_STREAM(this->get_logger(), "Could not connect to stm32 with port: " << port_ << " and baud rate: " << baudrate_);
-    // return;
-  }
-  else {
+  if (connectStm32()) {
     RCLCPP_INFO(this->get_logger(), "Connect to Stm32 successful");
   }
 
   // Read uart data every 20ms (50hz)
   timer_receive_uart_ = this->create_wall_timer(20ms, std::bind(&HbotDriver::readUart, this));
+  on_parameter_changed_ = this->add_on_set_parameters_callback(
+    std::bind(&HbotDriver::parametersCallback, this, _1));
 
   fb_rpm_pub_ = this->create_publisher<hbot_msg::msg::Rpm>("rpm_fb", 10);
   rpm_set_sub_ = this->create_subscription<hbot_msg::msg::Rpm>("rpm_in", 10, std::bind(&HbotDriver::setRpmCallback, this, _1));
@@ -49,19 +48,64 @@ HbotDriver::HbotDriver()
 HbotDriver::~HbotDriver(){}
 
 void HbotDriver::getParams() {
-  this->get_parameter_or<int>("baud_rate", baudrate_, 115200);
-  this->get_parameter_or<std::string>("port", port_, "/dev/ttyUSB0");
+  this->declare_parameter<int>("baud_rate", 115200);
+  this->declare_parameter<std::string>("port", "/dev/ttyUSB0");
+  this->declare_parameter<float>("kp", 0.0);
+  this->declare_parameter<float>("ki", 0.0);
+  this->declare_parameter<float>("kd", 0.0);
+  this->get_parameter<int>("baud_rate", baudrate_);
+  this->get_parameter<std::string>("port", port_);
+  this->get_parameter<float>("kp", kp_);
+  this->get_parameter<float>("ki", ki_);
+  this->get_parameter<float>("kd", kd_);
+}
+
+rcl_interfaces::msg::SetParametersResult HbotDriver::parametersCallback(
+    const std::vector<rclcpp::Parameter> &parameters) {
+  rcl_interfaces::msg::SetParametersResult result;
+  result.successful = true;
+  result.reason = "success";
+  for (const auto &param: parameters) {
+    RCLCPP_INFO(this->get_logger(), "%s", param.get_name().c_str());
+    RCLCPP_INFO(this->get_logger(), "%X", param.get_type());
+    if(param.get_type() == rclcpp::ParameterType::PARAMETER_DOUBLE){
+      if(param.get_name() == "kp") {
+        kp_ = param.get_value<float>();
+        sendCommand(CMD_SET_KP);
+      }
+      if(param.get_name() == "ki") {
+        ki_ = param.get_value<float>();
+        RCLCPP_INFO(this->get_logger(), "set ki: %f", ki_);
+        sendCommand(CMD_SET_KI);
+      }
+      if(param.get_name() == "kd") {
+        kd_ = param.get_value<float>();
+        RCLCPP_INFO(this->get_logger(), "set kd: %f", kd_);
+        sendCommand(CMD_SET_KD);
+      }
+    }
+  }
+  return result;
 }
 
 bool HbotDriver::connectStm32() {
-  serial_ = new serial::Serial(port_, baudrate_, serial::Timeout::simpleTimeout(1000));
-  return serial_->isOpen() ? true : false;
+  try
+  {
+    serial_ = new serial::Serial(port_, baudrate_, serial::Timeout::simpleTimeout(1000));
+    return serial_->isOpen() ? true : false;
+  }
+  catch(const serial::IOException ioe){
+    RCLCPP_ERROR(get_logger(), "Could not open connection at " + port_);
+    return 0;
+  }
+  catch(const std::exception& e)
+  {
+    std::cerr << e.what() << '\n';
+  }
 }
 
 void HbotDriver::readUart() {
-  auto begin = rclcpp::Clock().now().nanoseconds();
   if(serial_->available() == 0) return;
-
   uint8_t start_msg;
   int8_t cnt_ = 0;
   bool isStartMsg = false;
@@ -94,109 +138,125 @@ void HbotDriver::readUart() {
   printf("\n");
   // // RCLCPP_INFO(get_logger(), ss.str());
 #endif
-  uint8_t msg_length = header[0];
+  uint32_t new_cnt = (uint32_t)header[0] << 24
+                      | (uint32_t)header[1] << 16
+                      | (uint32_t)header[2] << 8
+                      | header[3];
+  if (new_cnt == rec_count_) return;
+  rec_count_ = new_cnt;
+  uint8_t msg_type = header[4];
+  uint8_t msg_length = header[5];
   // printf("%u\n", msg_length);
   // printf("%u\n", header[0]);
-  uint8_t msg_type = header[1];
-  uint32_t curr_count = (uint32_t)header[2] << 24 | (uint32_t)header[3] << 16 | (uint32_t)header[4] << 8 | header[5];
-
   printf("Header: msg_length: %i, msg_type: %02X\n", msg_length, msg_type);
-  if (curr_count == rec_count_) return;
-  rec_count_ = curr_count;
-  uint8_t parameters[msg_length-8];
-  for(int i=0;i<4;i++){
+
+  // uint8_t parameters[msg_length-8];
+  std::vector<uint8_t> msg;
+  msg.resize(msg_length-7);
   try
   {
-    /* code */
-    // uint8_t tmp;
-    // serial_->read(&tmp, 1);
-    // printf("%02X ");
-    serial_->read(parameters, sizeof(parameters));
+    serial_->read(msg, msg_length-7);
   }
   catch(const std::exception& e)
   {
-    std::cerr << 'asdfasdf' << e.what() << '\n';
+    std::cerr << e.what() << '\n';
   }
-  }
-  printf("\n");
 
+  float kpid;
   // printf("msg_type: %02X",msg_type);
   switch (msg_type)
   {
     case 0x00: // Feedback velocity
-      fb_rpm_left_ = (int)parameters[0] << 8 | parameters[1];
-      fb_rpm_right_ = (int)parameters[2] << 8 | parameters[3];
+      fb_rpm_left_ = (int)msg.at(0) << 8 | msg.at(1);
+      fb_rpm_right_ = (int)msg.at(2) << 8 | msg.at(3);
       RCLCPP_INFO(get_logger(), "Rpm feedback left: %d - right: %d", fb_rpm_left_, fb_rpm_right_);
       break;
 
-    case 0x10: // Response received velocity command
-      set_rpm_left_ = (int)parameters[0] << 8 | parameters[1];
-      set_rpm_right_ = (int)parameters[2] << 8 | parameters[3];
+    case 0x50: // Response received velocity command
+      set_rpm_left_ = (int)msg.at(0) << 8 | msg.at(1);
+      set_rpm_right_ = (int)msg.at(2) << 8 | msg.at(3);
       RCLCPP_INFO(get_logger(), "Stm32 received velocity: VL: %d - VL: %d", set_rpm_left_, set_rpm_right_);
+      break;
+
+    case 0x55: // set kp feedback
+      kpid = static_cast<float>((int64_t)msg.at(0) << 24
+                                | (int64_t)msg.at(1) << 16
+                                | (int64_t)msg.at(2) << 8
+                                | msg.at(3));
+      RCLCPP_INFO(get_logger(), "Set Kp: %f", kpid);
+      break;
+    case 0x56: // set kp feedback
+      kpid = static_cast<float>((int64_t)msg.at(0) << 24
+                                | (int64_t)msg.at(1) << 16
+                                | (int64_t)msg.at(2) << 8
+                                | msg.at(3));
+      RCLCPP_INFO(get_logger(), "Set Ki: %f", kpid);
+      break;
+    case 0x57: // set kp feedback
+      kpid = static_cast<float>((int64_t)msg.at(0) << 24
+                                | (int64_t)msg.at(1) << 16
+                                | (int64_t)msg.at(2) << 8
+                                | msg.at(3));
+      RCLCPP_INFO(get_logger(), "Set Kd: %f", kpid);
       break;
 
     default:
       break;
   }
-  uint8_t end_msg;
-  serial_->read(&end_msg, 1);
-  std::cout << "Period: " << (rclcpp::Clock().now().nanoseconds() - begin)/1E6 << "(ms)"<< std::endl;
 }
 
-bool HbotDriver::sendCommand(std::vector<uint8_t> buff, uint8_t size){
-  if(serial_->write(buff) != size) return 0;
-  return 1;
-}
-
-std::pair<std::vector<uint8_t>, uint8_t> HbotDriver::computeCommand(uint8_t cmd_type) {
-  std::pair<std::vector<uint8_t>, uint8_t> cmd;
+bool HbotDriver::sendCommand(uint8_t cmd_type) {
+  std::vector<uint8_t> cmd;
+  uint8_t cmd_size;
   tran_count_++;
-  cmd.first.push_back(KEY_BEGIN_TRAN);
-  cmd.first.push_back(tran_count_ >> 24);
-  cmd.first.push_back(tran_count_ >> 16);
-  cmd.first.push_back(tran_count_ >> 8);
-  cmd.first.push_back(tran_count_);
-  cmd.first.push_back(cmd_type);
+  cmd.push_back(KEY_BEGIN_TRAN);
+  cmd.push_back(tran_count_ >> 24);
+  cmd.push_back(tran_count_ >> 16);
+  cmd.push_back(tran_count_ >> 8);
+  cmd.push_back(tran_count_);
+  cmd.push_back(cmd_type);
   int k_int;
   switch (cmd_type)
   {
   case CMD_SET_VELOCITY:
-    cmd.second = (uint8_t)12;
-    cmd.first.push_back(cmd.second);
-    cmd.first.push_back(target_rpm_left_ >> 8);
-    cmd.first.push_back(target_rpm_left_);
-    cmd.first.push_back(target_rpm_right_ >> 8);
-    cmd.first.push_back(target_rpm_right_);
+    cmd_size = (uint8_t)12;
+    cmd.push_back(cmd_size);
+    cmd.push_back(target_rpm_left_ >> 8);
+    cmd.push_back(target_rpm_left_);
+    cmd.push_back(target_rpm_right_ >> 8);
+    cmd.push_back(target_rpm_right_);
     break;
   case CMD_SET_KP:
-    cmd.second = (uint8_t)12;
-    cmd.first.push_back(cmd.second);
+    cmd_size = (uint8_t)12;
+    cmd.push_back(cmd_size);
     k_int = static_cast<int>(kp_);
-    cmd.first.push_back(k_int >> 24);
-    cmd.first.push_back(k_int >> 16);
-    cmd.first.push_back(k_int >> 8);
-    cmd.first.push_back(k_int);
+    cmd.push_back(k_int >> 24);
+    cmd.push_back(k_int >> 16);
+    cmd.push_back(k_int >> 8);
+    cmd.push_back(k_int);
   case CMD_SET_KI:
-    cmd.second = (uint8_t)12;
-    cmd.first.push_back(cmd.second);
+    cmd_size = (uint8_t)12;
+    cmd.push_back(cmd_size);
     k_int = static_cast<int>(ki_);
-    cmd.first.push_back(k_int >> 24);
-    cmd.first.push_back(k_int >> 16);
-    cmd.first.push_back(k_int >> 8);
-    cmd.first.push_back(k_int);
+    cmd.push_back(k_int >> 24);
+    cmd.push_back(k_int >> 16);
+    cmd.push_back(k_int >> 8);
+    cmd.push_back(k_int);
   case CMD_SET_KD:
-    cmd.second = (uint8_t)12;
-    cmd.first.push_back(cmd.second);
+    cmd_size = (uint8_t)12;
+    cmd.push_back(cmd_size);
     k_int = static_cast<int>(ki_);
-    cmd.first.push_back(k_int >> 24);
-    cmd.first.push_back(k_int >> 16);
-    cmd.first.push_back(k_int >> 8);
-    cmd.first.push_back(k_int);
+    cmd.push_back(k_int >> 24);
+    cmd.push_back(k_int >> 16);
+    cmd.push_back(k_int >> 8);
+    cmd.push_back(k_int);
   default:
     break;
   }
-  cmd.first.push_back(KEY_END_TRAN);
-  return cmd;
+  cmd.push_back(KEY_END_TRAN);
+
+  if(serial_->write(cmd) == cmd_size) {return 1;}
+  else {return 0;}
 }
 
 void HbotDriver::setRpmCallback(const hbot_msg::msg::Rpm::SharedPtr msg) {
@@ -204,8 +264,6 @@ void HbotDriver::setRpmCallback(const hbot_msg::msg::Rpm::SharedPtr msg) {
   target_rpm_right_ = msg->right;
   RCLCPP_INFO(get_logger(), "Set Rpm: Left: %d - Right: %d", target_rpm_left_, target_rpm_right_);
 }
-
-
 
 int main(int argc, char * argv[])
 {

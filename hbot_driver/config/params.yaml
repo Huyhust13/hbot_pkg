@@ -1,3 +1,7 @@
-uart_comm:
-  baud_rate: 115200
-  port: /dev/ttyUSB0
+hbot_driver_node:
+  ros__parameters:
+    baud_rate: 115200
+    port: /dev/ttyUSB0
+    kp: 10.0
+    ki: 0.0
+    kd: 10.0
